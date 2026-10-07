@@ -1,0 +1,44 @@
+/* Canvas Section */
+.canvas-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-dark);
+  overflow: auto;
+  padding: 1rem;
+}
+
+#architecture-canvas {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* Bars Container for Algorithms */
+.bars-container {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 6px;
+  padding: 2rem;
+  background: var(--bg-dark);
+  height: calc(100vh - 120px);
+}
+
+.bar {
+  width: 24px;
+  background: var(--accent);
+  border-radius: 4px 4px 0 0;
+  transition: height 0.1s ease, background-color 0.1s ease;
+}
+
+.bar.comparing {
+  background: #f59e0b;
+}
+
+.bar.sorted {
+  background: #10b981;
+} 
