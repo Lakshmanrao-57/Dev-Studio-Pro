@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevStudio Pro - Enterprise IDE & Visualizer</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/editor.css">
+  <link rel="stylesheet" href="css/visualizer.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Top Navigation Header -->
+    <header class="top-nav">
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+        <h1>DevStudio <span>Pro</span></h1>
+      </div>
+      <nav class="module-tabs">
+        <button class="nav-btn active" data-target="editor-module">Code IDE & Preview</button>
+        <button class="nav-btn" data-target="diagram-module">Architecture Canvas</button>
+        <button class="nav-btn" data-target="visualizer-module">Algorithm Visualizer</button>
+      </nav>
+      <div class="header-actions">
+        <button id="btn-save" class="action-btn">Save Local</button>
+        <button id="btn-export" class="action-btn primary">Export Project</button>
+      </div>
+    </header>
+
+    <!-- Main Workspace Container -->
+    <main class="workspace">
+      <!-- MODULE 1: Live Code Editor -->
+      <section id="editor-module" class="module-view active">
+        <div class="editor-split">
+          <!-- Sidebar & Files -->
+          <aside class="editor-sidebar">
+            <h3>Files</h3>
+            <div class="file-list">
+              <button class="file-btn active" data-file="html">index.html</button>
+              <button class="file-btn" data-file="css">styles.css</button>
+              <button class="file-btn" data-file="js">script.js</button>
+            </div>
+            <div class="analytics-panel">
+              <h3>Code Analytics</h3>
+              <div class="metric"><span class="label">Lines of Code:</span> <span id="metric-loc" class="val">0</span></div>
+              <div class="metric"><span class="label">Functions:</span> <span id="metric-funcs" class="val">0</span></div>
+              <div class="metric"><span class="label">Complexity (Est):</span> <span id="metric-complexity" class="val">1</span></div>
+            </div>
+          </aside>
+
+          <!-- Textarea Editor Area -->
+          <div class="editor-main">
+            <div class="editor-header">
+              <span id="active-filename">index.html</span>
+              <button id="btn-run" class="run-btn">▶ Run Code</button>
+            </div>
+            <div class="code-wrapper">
+              <div class="line-numbers" id="line-numbers">1</div>
+              <textarea id="code-textarea" spellcheck="false" placeholder="Write code here..."></textarea>
+            </div>
+          </div>
+
+          <!-- Sandbox Preview & Output -->
+          <div class="preview-main">
+            <div class="preview-header">
+              <span>Live Preview</span>
+            </div>
+            <iframe id="preview-iframe" sandbox="allow-scripts"></iframe>
+            <div class="console-panel">
+              <div class="console-header">Console Output</div>
+              <div id="console-logs" class="console-logs"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE 2: Architecture Canvas -->
+      <section id="diagram-module" class="module-view">
+        <div class="toolbar">
+          <button id="add-node-client" class="tool-btn">+ Client Node</button>
+          <button id="add-node-api" class="tool-btn">+ API Gateway</button>
+          <button id="add-node-db" class="tool-btn">+ Database</button>
+          <button id="clear-canvas" class="tool-btn danger">Clear Canvas</button>
+        </div>
+        <div class="canvas-wrapper">
+          <canvas id="architecture-canvas" width="1200" height="700"></canvas>
+        </div>
+      </section>
+
+      <!-- MODULE 3: Algorithm Visualizer -->
+      <section id="visualizer-module" class="module-view">
+        <div class="toolbar">
+          <select id="algo-select">
+            <option value="bubble">Bubble Sort</option>
+            <option value="insertion">Insertion Sort</option>
+          </select>
+          <button id="btn-generate-array" class="tool-btn">Generate Array</button>
+          <button id="btn-start-sort" class="tool-btn primary">Start Visualization</button>
+          <label for="algo-speed">Speed:</label>
+          <input type="range" id="algo-speed" min="10" max="500" value="100">
+        </div>
+        <div id="bars-container" class="bars-container"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/analytics.js"></script>
+  <script src="js/editor.js"></script>
+  <script src="js/diagram.js"></script>
+  <script src="js/visualizer.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html> 
